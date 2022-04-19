@@ -1,6 +1,6 @@
-
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Sidebar from '../components/Sidebar/Sidebar';
+import Content from '../components/Content/Content';
 
 const Home = () => {
   return (
@@ -10,7 +10,10 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Spotify Clone</h1>
+      <main>
+        <Sidebar />
+        {/* <Content /> */}
+      </main>
     </div>
   )
 }
