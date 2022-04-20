@@ -17,9 +17,7 @@ function Sidebar() {
     const {data: session, status } = useSession();
     const [playlists, setPlaylists] = useState([]);
     const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
-    console.log(playlistId);
-
-    console.log('you picked playlist', playlistId);
+   
     const handleLogoutClick = (e) => {
         signOut();
     }

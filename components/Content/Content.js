@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { playlistIdState } from '../../atoms/playlistAtoms';
+import { playlistIdState, playlistState } from '../../atoms/playlistAtoms';
 import useSpotify from '../../hooks/useSpotify';
 import SongList from '../SongList/SongList'
 
@@ -24,8 +24,8 @@ function Content() {
   const [colour, setColour] = useState(null);
   const playlistId = useRecoilValue(playlistIdState);
   const spotifyAPI = useSpotify();
-  const [playlist, setPlaylist] = useRecoilState(playlistIdState);
-  console.log(playlist);
+  const [playlist, setPlaylist] = useRecoilState(playlistState);
+
 
   useEffect(() =>{
     setColour(shuffle(colours).pop());
