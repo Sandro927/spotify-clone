@@ -2,6 +2,8 @@ import { useSession } from 'next-auth/react';
 import { ChevronDownIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
+import { useRecoilValue } from 'recoil';
+import { playlistIdState } from '../../atoms/playlistAtoms';
 
 function Content() {
 
@@ -17,10 +19,11 @@ function Content() {
 
   const { data: session } = useSession();
   const [colour, setColour] = useState(null);
+  const playlistId = useRecoilValue(playlistIdState)
 
   useEffect(() =>{
     setColour(shuffle(colours).pop());
-  }, [])
+  }, [playlistId])
 
   return (
     <div className="flex-grow">

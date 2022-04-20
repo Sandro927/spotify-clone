@@ -8,13 +8,16 @@ import {
 } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/react";
 import useSpotify from '../../hooks/useSpotify';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { playlistIdState } from '../../atoms/playlistAtoms';
  
 function Sidebar() {
     const spotifyAPI = useSpotify();
     const {data: session, status } = useSession();
     const [playlists, setPlaylists] = useState([]);
     const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
+    console.log(playlistId);
 
     console.log('you picked playlist', playlistId);
     const handleLogoutClick = (e) => {
