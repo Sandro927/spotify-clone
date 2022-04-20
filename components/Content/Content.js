@@ -5,6 +5,7 @@ import { shuffle } from 'lodash';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { playlistIdState } from '../../atoms/playlistAtoms';
 import useSpotify from '../../hooks/useSpotify';
+import SongList from '../SongList/SongList'
 
 
 function Content() {
@@ -43,7 +44,7 @@ function Content() {
   return (
     <div className="flex-grow">
       <header className="absolute top-5 right-8">
-        <div className={`flex items-center bg-green-300 space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2`}>
+        <div className={`flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white`}>
           <img 
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgSmojUgwjIB87c4Q0hLCAyl__oiTySWGWJUZtUNHlHjBALLzTsu_vMHYMaEwLts4QEoo&usqp=CAU" 
             className="rounded-full w-10 h-10" 
@@ -61,6 +62,10 @@ function Content() {
           <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">{playlist?.name}</h1>
         </div>
       </section>
+
+      <div>
+        <SongList />
+      </div>
     </div>
   )
 }
