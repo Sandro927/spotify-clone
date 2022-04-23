@@ -1,7 +1,7 @@
 import useSpotify from './useSpotify';
 import { currentTrackIdState } from '../atoms/songAtom';
 import { useRecoilState } from 'recoil';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useSongInfo() {
     
@@ -13,7 +13,7 @@ function useSongInfo() {
         const fetchSongInfo = async () => {
             if (currentTrackId) {
                 const trackInfo = await fetch(
-                    `https://api.spotify.com/v1.tracks/${currentTrackId}`,
+                    `https://api.spotify.com/v1/tracks/${currentTrackId}`,
                     {
                         headers: {
                             Authorization: `Bearer ${spotifyApi.getAccessToken()}`
