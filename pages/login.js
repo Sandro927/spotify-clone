@@ -22,7 +22,8 @@ export async function getServerSideProps() {
     const provider = await getProviders();
     return {
         props: {
-            provider
+            provider,
+            tester: true
         }
     };
 }
