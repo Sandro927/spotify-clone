@@ -1,10 +1,10 @@
 import { getProviders, signIn } from "next-auth/react"
 
-function login({ provider }) {
+function login(props) {
 
     const handleSignInClick = (e) => {
         console.log(props)
-        signIn(provider.spotify.id, { callbackUrl: "/" })
+        signIn(props.provider.spotify.id, { callbackUrl: "/" })
     }
     return (
         <div className="flex flex-col items-center bg-black min-h-screen w-full justify-center">
