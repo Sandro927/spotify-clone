@@ -2,7 +2,8 @@ import { getProviders, signIn } from "next-auth/react"
 
 function login({ provider }) {
 
-    const handleSignInClick = () => {
+    const handleSignInClick = (e) => {
+        console.log('the providers', provider);
         signIn(provider.spotify.id, { callbackUrl: "/" })
     }
     return (
