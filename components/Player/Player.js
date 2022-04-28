@@ -53,6 +53,10 @@ function Player() {
             })
     }
 
+    const handleVolumeChange = (e) => {
+        setVolume(Number(e.target.value));
+    }
+
     useEffect(() => {
         if (spotifyApi.getAccessToken() && !currentTrackId) {
             fetchCurrentSong();
@@ -89,6 +93,19 @@ function Player() {
 
             <FastForwardIcon className='button'/>
             <ReplyIcon className='button' />
+        </div>
+
+        <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
+            <VolumeDownIcon className="button"/>
+            <input 
+                className="w-14 md:w-28" 
+                type="range" 
+                value={volume} 
+                onChange={handleVolumeChange}
+                min={0} 
+                max={100} 
+            />
+            <VolumeUpIcon className="button"/>
         </div>
     </div>
   )
